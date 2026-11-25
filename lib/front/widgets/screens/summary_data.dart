@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gpt_markdown/gpt_markdown.dart';
 
 class SummaryDataScreen extends StatelessWidget {
   final String? summary;
@@ -60,8 +61,8 @@ class SummaryDataScreen extends StatelessWidget {
                     Text(
                       'AI Summary',
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const Spacer(),
                     IconButton(
@@ -78,11 +79,13 @@ class SummaryDataScreen extends StatelessWidget {
                 ),
                 const Divider(),
                 const SizedBox(height: 6),
-                SelectableText(
-                  text,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        height: 1.5,
-                      ),
+                SelectionArea(
+                  child: GptMarkdown(
+                    text,
+                    style: Theme.of(
+                      context,
+                    ).textTheme.bodyMedium?.copyWith(height: 1.5),
+                  ),
                 ),
               ],
             ),

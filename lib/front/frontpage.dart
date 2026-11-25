@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:textrepresentation/front/widgets/interactions/button.dart';
 import 'package:textrepresentation/front/widgets/interactions/document_field.dart';
 import 'package:textrepresentation/front/widgets/interactions/file_upload.dart';
@@ -13,6 +14,7 @@ import 'package:textrepresentation/services/analyzers/tfidf_analyzer.dart';
 import 'package:textrepresentation/services/analyzers/tokenizer.dart';
 import 'package:textrepresentation/services/extractor/pdf_extractor.dart';
 import 'package:textrepresentation/services/summarization/ai_summarizer.dart';
+import 'package:textrepresentation/theme/theme_controller.dart';
 
 final TextTokenizer _tokenizer = const TextTokenizer();
 final BagOfWordsAnalyzer _bowAnalyzer = const BagOfWordsAnalyzer();
@@ -169,6 +171,24 @@ class _FrontpageState extends State<Frontpage>
         titleSpacing: 20,
         actionsPadding: const EdgeInsets.only(right: 12),
         actions: [
+          ValueListenableBuilder<ThemeMode>(
+            valueListenable: AppThemeController.mode,
+            builder: (context, currentMode, _) {
+              final isDark =
+                  currentMode == ThemeMode.dark ||
+                  (currentMode == ThemeMode.system &&
+                      MediaQuery.platformBrightnessOf(context) ==
+                          Brightness.dark);
+
+              return IconButton(
+                tooltip: isDark
+                    ? 'Switch to Light Mode'
+                    : 'Switch to Dark Mode',
+                icon: Icon(isDark ? LucideIcons.sun : LucideIcons.moon),
+                onPressed: () => AppThemeController.toggle(!isDark),
+              );
+            },
+          ),
           IconButton(
             tooltip: 'About & Tools Used',
             icon: const Icon(Icons.info_outline),

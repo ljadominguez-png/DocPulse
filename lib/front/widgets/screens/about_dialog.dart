@@ -50,6 +50,9 @@ class DocPulseAboutDialog extends StatelessWidget {
             const Text('• Flutter & Dart (Web)'),
             const Text('• file_picker (browser PDF selection)'),
             const Text('• pdfrx (PDFium WASM text extraction)'),
+            const Text('• googleai_dart ^12.0.2 (Gemini API client)'),
+            const Text('• gpt_markdown ^1.3.4 (Markdown summary rendering)'),
+            const Text('• lucide_icons_flutter ^4.0.3 (UI icons)'),
             const SizedBox(height: 14),
             Text(
               'Analysis & AI Models',
