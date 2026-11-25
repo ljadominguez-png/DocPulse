@@ -1,0 +1,23 @@
+name: textrepresentation
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.11.0
+
+dependencies:
+  file_picker: ^13.4.1
+  flutter:
+    sdk: flutter
+  googleai_dart: ^12.0.2
+  lucide_icons_flutter: ^4.0.3
+  pdfrx: ^2.4.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
